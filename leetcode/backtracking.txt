@@ -1,0 +1,68 @@
+Leetcode 90-Subsets II
+
+var subsetsWithDup = function(nums) {
+    nums.sort((a,b)=>a-b);
+    let res=[],path=[];
+    let backTrack=(i)=>{
+        if(i===nums.length){
+            res.push([...path]);
+            return;
+        }
+
+        path.push(nums[i]);
+        backTrack(i+1);
+        path.pop();
+
+        while(i+1<nums.length&&nums[i]===nums[i+1]) i++;
+
+        backTrack(i+1);
+        
+    }
+    backTrack(0);
+    return res;
+};
+
+Leetcode 77-Combinations
+
+var combine = function(n, k) {
+    let res=[],path=[];
+    let combination=(start)=>{
+        if(path.length===k){
+            res.push([...path]);
+            return;
+        }
+
+        for(let i=start;i<=n-(k-path.length)+1;i++){
+            path.push(i);
+            combination(i+1);
+            path.pop();
+        }
+    }
+
+    combination(1);
+    return res;
+};
+
+Leetcode 39-Combination Sum
+
+var combinationSum = function(candidates, target) {
+    candidates.sort((a,b)=>a-b);
+    let res=[],path=[];
+
+
+    combination_Sum=(idx,sum)=>{
+        if(sum===target){
+            res.push([...path]);
+            return;
+        }
+        for(let i=idx;i<candidates.length;i++){
+            if(sum+candidates[i]>target) break;
+            path.push(candidates[i]);
+            combination_Sum(i,sum+candidates[i]);
+            path.pop();
+        }
+    }
+
+    combination_Sum(0,0);
+    return res;
+};
