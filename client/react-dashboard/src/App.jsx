@@ -6,20 +6,21 @@ import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import NotFound from './pages/NotFound'
 import { useState } from 'react'
+import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
-  const [isLoggedIn,setIsLoggedIn]=useState(false);
-
   return (
-    <BrowserRouter>
-      <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+    <>
+      <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/login' element={<Login setIsLoggedIn={setIsLoggedIn}/>} />
-        <Route path='/dashboard' element={<Dashboard isLoggedIn={isLoggedIn}/>} />
+        <Route path='/login' element={<Login />} />
+        <Route element={<ProtectedRoute/>}>
+          <Route path='/dashboard' element={<Dashboard/>} />
+        </Route>
         <Route path='*' element={<NotFound/>}/>
       </Routes>
-    </BrowserRouter>
+    </>
   )
 }
 

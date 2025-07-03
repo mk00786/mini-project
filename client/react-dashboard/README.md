@@ -1,68 +1,54 @@
-# 🧩 React Auth Dashboard with Tailwind
+# 🧠 React Mini Auth Dashboard
 
-A mini project built using **React**, **React Router**, and **Tailwind CSS**. It includes basic login authentication, protected routing, reusable components, and a responsive UI layout.
+This is a simple authentication-based React project built with:
 
----
+- 🔐 Login/logout flow using `useState` + route guards
+- 📦 React Router v6
+- 🎨 Tailwind CSS for UI
+- 🧩 Reusable Card components
 
-## 🚀 Features
+### 📁 Pages:
+- Home
+- Login
+- Dashboard (protected)
+- 404 Not Found
 
-- 🔐 Login authentication using `useState` (simulated, no backend)
-- 🔁 Protected routes (Dashboard redirect if not logged in)
-- 🧭 Navigation bar with conditional Login/Logout button
-- 📦 Reusable `<Card />` component with Tailwind styling
-- ⚡ Clean UI with responsive grid layout
-- 🧠 LeetCode folder included for solved problems (e.g., LC 77, LC 90, LC 39)
+### 📌 Features:
 
----
-
-## 🛠️ Tech Stack
-
-- React
-- React Router DOM
-- Tailwind CSS
-- GitHub CLI + Git for version control
-
----
-
-## 📁 Folder Structure
-
-mini-project/
-├── client/
-│ └── react-dashboard/ # React project files
-├── leetcode/ # Daily DSA solutions
-└── README.md # This file
+- 🔐 AuthContext with `localStorage` persistence  
+- 🚦 Protected Routes using `<Outlet />`  
+- 🧭 Login with redirection + form cleanup  
+- 📬 Dashboard personalized with user email  
+- 🧭 Conditional Navbar (Login/Logout)  
+- 🎨 Clean Tailwind CSS UI  
+- 💻 Dashboard cards with hover effects  
+- ⚙️ Route fallback with loading state
 
 ---
 
-## 📸 Screenshot
-
-public/screenshots
-
----
-
-## 🧪 How to Run Locally
+## 🏁 Getting Started
 
 ```bash
-# Step 1: Go to client folder
-cd client/react-dashboard
-
-# Step 2: Install dependencies
 npm install
-
-# Step 3: Start the server
 npm run dev
 
-##📌 Future Enhancements
-Backend auth with JWT + MongoDB
+🧠 DSA Folder (optional)
+Includes clean code for:
 
-Login form validation + toasts
+LC 77 – Combinations
 
-Dashboard with dynamic API data
+LC 90 – Subsets II
 
-Dark mode toggle
+LC 39 – Combination Sum
 
-🤝 Author
-Mridul Kapoor
+---
 
-⭐ If you like it...
-Give this repo a star and check out my other projects! 😊
+## 📁 Create `/leetcode` Folder
+
+### ➕ Sample:
+/leetcode/backtracking/
+├── lc39-combination-sum.js
+├── lc77-combinations.js
+├── lc90-subsets-ii.js
+
+---
