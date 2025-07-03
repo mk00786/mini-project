@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link,useNavigate } from 'react-router-dom'
+import { useAuth } from '../components/AuthContext';
 
-const Navbar = ({isLoggedIn,setIsLoggedIn}) => {
+const Navbar = () => {
   const navigate=useNavigate();
+  const {isAuthenticated,logout,user}=useAuth();
 
   const handleLogout=()=>{
-    setIsLoggedIn(false);
+    logout();
     navigate('/');
   }
 
@@ -19,8 +21,11 @@ const Navbar = ({isLoggedIn,setIsLoggedIn}) => {
       <Link to='/' className='mr-4 hover:underline'>Home</Link>
       <Link to='/dashboard' className='mr-4 hover:underline'>Dashboard</Link>
     </div>
-    <div>
-      {isLoggedIn?(
+    <div className='flex items-center space-x-4'>
+    {isAuthenticated&&(
+      <span className='text-sm text-gray-300'>{user?.email}</span>
+    )}
+      {isAuthenticated?(
         <button onClick={handleLogout}
          className='bg-red-500 px-4 py-2 rounded hover:bg-red-600' 
         >Logout</button>

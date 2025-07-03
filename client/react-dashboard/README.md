@@ -14,10 +14,29 @@ This is a simple authentication-based React project built with:
 - 404 Not Found
 
 ### 📌 Features:
-- Conditional Navbar (Login/Logout)
-- Dashboard cards with hover effects
-- Route protection using `useEffect` + `navigate()`
+🔐 AuthContext with localStorage persistence
+Persist login state and user email across page reloads.
 
+🚦 Protected Routes using <Outlet />
+Restrict access to dashboard unless authenticated.
+
+🧭 Login with redirection + form state cleanup
+Redirects to /dashboard after login and resets input fields.
+
+📬 Dashboard personalized with user email
+Greets the user using email stored in context.
+
+🧭 Conditional Navbar (Login/Logout)
+Dynamically switches button and email based on auth status.
+
+🎨 Clean Tailwind CSS UI
+Responsive layout with centered pages and styled components.
+
+💻 Dashboard cards with hover effects
+Simple card UI showing projects, messages, tasks, and notifications.
+
+⚙️ Route protection using useEffect + navigate() fallback
+Ensures unauthorized access is redirected safely.
 ---
 
 ## 🏁 Getting Started

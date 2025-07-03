@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../components/AuthContext';
 
-const Login = ({setIsLoggedIn}) => {
+const Login = () => {
     const [user,setUser]=useState({
         email:'',
         password:''
     });
 
     const navigate=useNavigate();
+    const {login}=useAuth();
 
     const handleChange=(e)=>{
         const {value,name}=e.target;
@@ -21,15 +23,19 @@ const Login = ({setIsLoggedIn}) => {
     const handleSubmit=(e)=>{
         e.preventDefault();
 
-        if(user.password&&user.email){
-            setIsLoggedIn(true);
-            navigate('/dashboard');
+        if(!user.email.includes('@')){
+            alert('Please enter a valid email');
+            return;
         }
 
-        setUser({
-        email:'',
-        password:''
-        })
+        if(user.password&&user.email){
+            login(user.email);
+            navigate('/dashboard');
+            setUser({
+                email:'',
+                password:''
+            })
+        }
     }
 
   return (
@@ -38,7 +44,7 @@ const Login = ({setIsLoggedIn}) => {
         <h2 className='text-2xl font-semibold mb-4'>Login</h2>
         <form onSubmit={handleSubmit} className='space-y-4'>
             <input type='email' placeholder='Enter Email' value={user.email} onChange={handleChange}
-                name='email' className='px-4 py-2 border rounded w-full' required
+                name='email' className='px-4 py-2 border rounded w-full' required pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
             />
             <input type='password' placeholder='Enter Password' value={user.password} 
             onChange={handleChange} name='password' className='w-full px-4 py-2 rounded border' required
