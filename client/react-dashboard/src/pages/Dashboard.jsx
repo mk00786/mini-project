@@ -3,6 +3,8 @@ import {useAuth} from '../components/AuthContext'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import AddTaskForm from '../components/AddTaskForm';
+import TaskList from '../components/TaskList';
+import AddProjectForm from '../components/AddProjectForm';
 
 const Dashboard = () => {
     const {user}=useAuth();
@@ -40,6 +42,7 @@ const Dashboard = () => {
         <h2 className='text-2xl font-bold mb-4'>Welcome, {user?.email||'user'} 👋</h2>
 
           <AddTaskForm onAdd={fetchData}/>
+          <AddProjectForm onAdd={fetchData}/>
 
         <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-6'>
             <Card title="Projects" content={`You have ${data.projects} active projects.`} />
@@ -47,6 +50,8 @@ const Dashboard = () => {
             <Card title="Tasks" content={`You completed ${data.tasks.completed} tasks out of ${data.tasks.total}`} />
             <Card title="Notifications" content={`You have ${data.notifications} new notifications`} />
         </div>
+
+        <TaskList/>
         
     </div>
   )
