@@ -5,6 +5,8 @@ import { useEffect } from 'react';
 import AddTaskForm from '../components/AddTaskForm';
 import TaskList from '../components/TaskList';
 import AddProjectForm from '../components/AddProjectForm';
+import StatsOverview from '../components/StatsOverview';
+import DummyStats from '../components/DummyStats';
 
 const Dashboard = () => {
     const {user}=useAuth();
@@ -50,8 +52,9 @@ const Dashboard = () => {
             <Card title="Tasks" content={`You completed ${data.tasks.completed} tasks out of ${data.tasks.total}`} />
             <Card title="Notifications" content={`You have ${data.notifications} new notifications`} />
         </div>
-
+        <StatsOverview/>
         <TaskList/>
+        <DummyStats/>
         
     </div>
   )
