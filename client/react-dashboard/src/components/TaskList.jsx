@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react'
 
-const TaskList = () => {
+const TaskList = ({refreshKey}) => {
     const [allTasks,setAllTasks]=useState([]);
 
     useEffect(()=>{
         const fetchAllTasks=async ()=>{
             try{
-                let res=await fetch('http://localhost:4000/api/all-tasks');
-                let data=await res.json();
-                setAllTasks(data);
+                let res=await fetch('http://localhost:5000/api/tasks/all');
+                let result=await res.json();
+                setAllTasks(result?.data||[]);
             }catch(err){
                 console.log(err);
             }
         }
 
         fetchAllTasks();
-
-    },[]);
+    },[refreshKey]);
+    
   return (
     <div className='bg-white p-4 rounded shadow mt-6'>
       <h3 className='text-lg font-semibold mb-4'>Task History</h3>

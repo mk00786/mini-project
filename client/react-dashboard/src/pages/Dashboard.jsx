@@ -19,15 +19,15 @@ const Dashboard = () => {
 
     const fetchData= async()=>{
         const [proj,msg,tasks,notif]=await Promise.all([
-          fetch('http://localhost:4000/api/projects').then(res=>res.json()),
-          fetch('http://localhost:4000/api/messages').then(res=>res.json()),
-          fetch('http://localhost:4000/api/tasks').then(res=>res.json()),
-          fetch('http://localhost:4000/api/notifications').then(res=>res.json())
+          fetch('http://localhost:5000/api/projects').then(res=>res.json()),
+          fetch('http://localhost:5000/api/messages').then(res=>res.json()),
+          fetch('http://localhost:5000/api/tasks').then(res=>res.json()),
+          fetch('http://localhost:5000/api/notifications').then(res=>res.json())
         ]);
         setData({
-          projects:proj.count,
+          projects:proj?.data?.count,
           messages:msg.unread,
-          tasks:tasks,
+          tasks:tasks?.data||{completed:0,total:0},
           notifications:notif.new
         })
       }
@@ -53,7 +53,7 @@ const Dashboard = () => {
             <Card title="Notifications" content={`You have ${data.notifications} new notifications`} />
         </div>
         <StatsOverview/>
-        <TaskList/>
+        <TaskList refreshKey={data.tasks.total}/>
         <DummyStats/>
         
     </div>

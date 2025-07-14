@@ -16,7 +16,7 @@ const AddTaskForm = ({onAdd}) => {
     const handleSubmit=async (e)=>{
         e.preventDefault();
 
-        const response=await fetch('http://localhost:4000/api/task',{
+        const response=await fetch('http://localhost:5000/api/tasks',{
             method:'POST',
             headers:{'Content-Type':'application/json'},
             body:JSON.stringify({completed:Number(task.completed),total:Number(task.total)})
