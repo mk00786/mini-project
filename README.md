@@ -35,7 +35,7 @@ A full-stack, minimal productivity tracker built with the MERN stack. Manage pro
 |-----------------------------------------------------|----------------------------------------------------------------|
 | mini-project-6015nzhgx-mk00786s-projects.vercel.app | https://gracious-illumination-production.up.railway.app/       |
 ------------------------------------------------------------------------------------------------------------------------
-
+For login:- Email-m@abc.com, Password-mridul
 ---
 
 ## 🖼️ Preview
