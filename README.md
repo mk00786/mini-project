@@ -40,7 +40,23 @@ Password-mridul
 
 ### 🖼️ Preview
 
-> Add your screenshot links here after deployment.
+> Screenshots:
+
+Home Page-
+
+<img width="1886" height="844" alt="image" src="https://github.com/user-attachments/assets/af8dc349-36ef-4cfa-a3e4-df0009098554" />
+
+Login Page-
+
+<img width="1886" height="844" alt="image" src="https://github.com/user-attachments/assets/cf1253e4-90b0-4714-84e0-bfd715e6816e" />
+
+
+Dashboard Page-
+<img width="1886" height="844" alt="image" src="https://github.com/user-attachments/assets/0236ef1c-a041-4a0a-8397-c632046d4400" />
+<img width="1886" height="844" alt="image" src="https://github.com/user-attachments/assets/4f6262e8-25c4-4739-8d86-ff0c94ad9890" />
+<img width="1886" height="844" alt="image" src="https://github.com/user-attachments/assets/505dce6e-1fe2-4c46-bb80-4ae3b5ff4f0b" />
+<img width="1886" height="844" alt="image" src="https://github.com/user-attachments/assets/05be8be1-9a03-4bdd-b572-e99680848d67" />
+
 
 ### 📦 Local Setup
 
